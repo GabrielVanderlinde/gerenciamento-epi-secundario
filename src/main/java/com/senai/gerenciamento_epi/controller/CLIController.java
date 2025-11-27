@@ -76,13 +76,13 @@ public class CLIController implements CommandLineRunner {
         System.out.println("1 - Cadastrar Colaborador");
         System.out.println("2 - Listar Colaboradores");
         System.out.println("3 - Atualizar Colaborador");
-        System.out.println("4 - Inativar Colaborador (Exclusão Lógica)");
+        System.out.println("4 - Inativar Colaborador");
 
         System.out.println("\n=== 2. EPIs ===");
         System.out.println("5 - Cadastrar EPI");
         System.out.println("6 - Listar EPIs");
         System.out.println("7 - Atualizar EPI");
-        System.out.println("8 - Indisponibilizar EPI (Exclusão Lógica)");
+        System.out.println("8 - Indisponibilizar EPI");
 
         System.out.println("\n=== 3. Empréstimos ===");
         System.out.println("9 - Registrar Empréstimo");
