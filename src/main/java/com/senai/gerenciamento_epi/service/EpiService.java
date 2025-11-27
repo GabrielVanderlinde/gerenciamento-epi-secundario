@@ -33,6 +33,10 @@ public class EpiService {
         return toDTO(repo.save(e));
     }
 
+    /**
+     * Realiza a baixa lógica de um EPI (marca como indisponível).
+     * Não exclui o registro do banco.
+     */
     public void indisponibilizar(Integer id) {
         EpiEntity e = repo.findById(id).orElseThrow();
         e.setStatusEpi(false);
