@@ -14,6 +14,10 @@ import java.util.stream.Collectors;
 public class ColaboradorService {
     private final ColaboradorRepository repo;
 
+    /**
+     * Recupera a lista completa de colaboradores.
+     * @return Lista de DTOs formatados.
+     */
     public List<ColaboradorDTO> listar() {
         return repo.findAll().stream().map(this::toDTO).collect(Collectors.toList());
     }
