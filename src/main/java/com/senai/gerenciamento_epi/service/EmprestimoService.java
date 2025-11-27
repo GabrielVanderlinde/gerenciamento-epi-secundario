@@ -17,6 +17,10 @@ public class EmprestimoService {
     private final ColaboradorRepository colabRepo;
     private final EpiRepository epiRepo;
 
+    /**
+     * Realiza um novo emprestimo validando a disponibilidade do EPI
+     * e o status do colaborador.
+     */
     @Transactional
     public EmprestimoDTO criar(EmprestimoDTO dto) {
         ColaboradorEntity c = colabRepo.findById(dto.getIdColaborador()).orElseThrow();
