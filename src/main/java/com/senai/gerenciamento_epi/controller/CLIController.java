@@ -125,6 +125,7 @@ public class CLIController implements CommandLineRunner {
         System.out.println("\n--- NOVO EPI ---");
         System.out.print("Nome do EPI: ");
         String n = input.nextLine();
+        if (n.isBlank()) { System.out.println("Nome não pode ser vazio!"); return; }
         System.out.print("Descricao: ");
         String d = input.nextLine();
 
