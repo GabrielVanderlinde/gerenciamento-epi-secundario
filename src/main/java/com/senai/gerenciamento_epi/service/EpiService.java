@@ -18,6 +18,10 @@ public class EpiService {
         return repo.findAll().stream().map(this::toDTO).collect(Collectors.toList());
     }
 
+    /**
+     * Registra um novo EPI no sistema.
+     * @param dto Dados do novo equipamento.
+     */
     public EpiDTO criar(EpiDTO dto) {
         return toDTO(repo.save(new EpiEntity(dto.getNomeEpi(), dto.getDescricao())));
     }
