@@ -67,7 +67,7 @@ public class CLIController implements CommandLineRunner {
                     default -> System.out.println("Opcao Invalida! Tente novamente.");
                 }
             } catch (Exception e) {
-                System.out.println("ERRO: " + e.getMessage());
+                System.out.println("ERRO CRÍTICO NO SISTEMA: " + e.getMessage());
                 input.nextLine(); // Limpa o buffer em caso de erro de digitação
             }
         } while (op != 0);
