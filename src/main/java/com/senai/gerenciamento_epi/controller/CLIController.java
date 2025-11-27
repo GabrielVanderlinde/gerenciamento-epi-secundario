@@ -27,7 +27,7 @@ public class CLIController implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        int op = 0;
+        int opcao = 0;
         do {
             System.out.println("\n=== SISTEMA DE GERENCIAMENTO DE EPI ===");
             System.out.println("1. Novo Colaborador");
@@ -48,10 +48,10 @@ public class CLIController implements CommandLineRunner {
             System.out.print("Escolha uma opcao: ");
 
             try {
-                op = input.nextInt();
+                opcao = input.nextInt();
                 input.nextLine(); // Limpa o buffer do teclado
 
-                switch (op) {
+                switch (opcao) {
                     case 1 -> criarColab();
                     case 2 -> listarColab();
                     case 3 -> editarColab();
@@ -70,7 +70,7 @@ public class CLIController implements CommandLineRunner {
                 System.out.println("ERRO CRÍTICO NO SISTEMA: " + e.getMessage());
                 input.nextLine(); // Limpa o buffer em caso de erro de digitação
             }
-        } while (op != 0);
+        } while (opcao != 0);
     }
 
     // --- METODOS AUXILIARES ---
