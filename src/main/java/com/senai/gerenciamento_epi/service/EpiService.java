@@ -1,9 +1,11 @@
 package com.senai.gerenciamento_epi.service;
+
 import com.senai.gerenciamento_epi.dto.EpiDTO;
 import com.senai.gerenciamento_epi.entity.EpiEntity;
 import com.senai.gerenciamento_epi.repository.EpiRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,8 +24,8 @@ public class EpiService {
 
     public EpiDTO atualizar(Integer id, EpiDTO dto) {
         EpiEntity e = repo.findById(id).orElseThrow();
-        if(dto.getNomeEpi() != null) e.setNomeEpi(dto.getNomeEpi());
-        if(dto.getDescricao() != null) e.setDescricao(dto.getDescricao());
+        if (dto.getNomeEpi() != null) e.setNomeEpi(dto.getNomeEpi());
+        if (dto.getDescricao() != null) e.setDescricao(dto.getDescricao());
         return toDTO(repo.save(e));
     }
 

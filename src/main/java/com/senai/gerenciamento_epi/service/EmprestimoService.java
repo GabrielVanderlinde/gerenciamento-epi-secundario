@@ -1,10 +1,12 @@
 package com.senai.gerenciamento_epi.service;
+
 import com.senai.gerenciamento_epi.dto.EmprestimoDTO;
 import com.senai.gerenciamento_epi.entity.*;
 import com.senai.gerenciamento_epi.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +22,10 @@ public class EmprestimoService {
         ColaboradorEntity c = colabRepo.findById(dto.getIdColaborador()).orElseThrow();
         EpiEntity e = epiRepo.findById(dto.getIdEpi()).orElseThrow();
 
-        if(!e.getStatusEpi()) throw new RuntimeException("EPI Indisponivel!");
+        if (!e.getStatusEpi()) throw new RuntimeException("EPI Indisponivel!");
 
         EmprestimoEntity emp = new EmprestimoEntity(c, e);
-        if(dto.getDataDevolucao() != null) emp.setDataDevolucao(dto.getDataDevolucao());
+        if (dto.getDataDevolucao() != null) emp.setDataDevolucao(dto.getDataDevolucao());
 
         e.setStatusEpi(false);
         epiRepo.save(e);
@@ -34,7 +36,7 @@ public class EmprestimoService {
     @Transactional
     public EmprestimoDTO devolver(Integer id) {
         EmprestimoEntity emp = empRepo.findById(id).orElseThrow();
-        if("DEVOLVIDO".equals(emp.getStatus())) throw new RuntimeException("Ja devolvido!");
+        if ("DEVOLVIDO".equals(emp.getStatus())) throw new RuntimeException("Ja devolvido!");
 
         emp.setStatus("DEVOLVIDO");
         emp.getEpi().setStatusEpi(true);

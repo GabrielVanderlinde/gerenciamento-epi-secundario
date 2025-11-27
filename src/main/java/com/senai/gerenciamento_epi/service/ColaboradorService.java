@@ -1,9 +1,11 @@
 package com.senai.gerenciamento_epi.service;
+
 import com.senai.gerenciamento_epi.dto.ColaboradorDTO;
 import com.senai.gerenciamento_epi.entity.ColaboradorEntity;
 import com.senai.gerenciamento_epi.repository.ColaboradorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +19,7 @@ public class ColaboradorService {
     }
 
     public ColaboradorDTO criar(ColaboradorDTO dto) {
-        if(repo.existsByNomeColaborador(dto.getNomeColaborador()))
+        if (repo.existsByNomeColaborador(dto.getNomeColaborador()))
             throw new RuntimeException("Nome duplicado.");
 
         ColaboradorEntity entity = new ColaboradorEntity(dto.getNomeColaborador(), dto.getSetorColaborador());
@@ -26,9 +28,9 @@ public class ColaboradorService {
 
     public ColaboradorDTO atualizar(Integer id, ColaboradorDTO dto) {
         ColaboradorEntity e = repo.findById(id).orElseThrow();
-        if(dto.getNomeColaborador() != null) e.setNomeColaborador(dto.getNomeColaborador());
-        if(dto.getSetorColaborador() != null) e.setSetorColaborador(dto.getSetorColaborador());
-        if(dto.getStatusColaborador() != null) e.setStatusColaborador(dto.getStatusColaborador());
+        if (dto.getNomeColaborador() != null) e.setNomeColaborador(dto.getNomeColaborador());
+        if (dto.getSetorColaborador() != null) e.setSetorColaborador(dto.getSetorColaborador());
+        if (dto.getStatusColaborador() != null) e.setStatusColaborador(dto.getStatusColaborador());
         return toDTO(repo.save(e));
     }
 

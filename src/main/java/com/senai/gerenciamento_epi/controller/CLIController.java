@@ -4,6 +4,7 @@ import com.senai.gerenciamento_epi.dto.*;
 import com.senai.gerenciamento_epi.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -50,7 +51,7 @@ public class CLIController implements CommandLineRunner {
                 op = input.nextInt();
                 input.nextLine(); // Limpa o buffer do teclado
 
-                switch(op) {
+                switch (op) {
                     case 1 -> criarColab();
                     case 2 -> listarColab();
                     case 3 -> editarColab();
@@ -65,11 +66,11 @@ public class CLIController implements CommandLineRunner {
                     case 0 -> System.out.println("Encerrando o sistema...");
                     default -> System.out.println("Opcao Invalida! Tente novamente.");
                 }
-            } catch(Exception e) {
+            } catch (Exception e) {
                 System.out.println("ERRO: " + e.getMessage());
                 input.nextLine(); // Limpa o buffer em caso de erro de digitação
             }
-        } while(op != 0);
+        } while (op != 0);
     }
 
     // --- METODOS AUXILIARES ---
@@ -94,7 +95,8 @@ public class CLIController implements CommandLineRunner {
     private void editarColab() {
         System.out.println("\n--- EDITAR COLABORADOR ---");
         System.out.print("ID do Colaborador: ");
-        int id = input.nextInt(); input.nextLine();
+        int id = input.nextInt();
+        input.nextLine();
 
         System.out.print("Novo Nome (Enter para manter): ");
         String n = input.nextLine();
@@ -111,7 +113,8 @@ public class CLIController implements CommandLineRunner {
 
     private void inativarColab() {
         System.out.print("ID do Colaborador para inativar: ");
-        int id = input.nextInt(); input.nextLine();
+        int id = input.nextInt();
+        input.nextLine();
         colabService.inativar(id);
         System.out.println("Colaborador inativado.");
     }
@@ -136,7 +139,8 @@ public class CLIController implements CommandLineRunner {
     private void editarEpi() {
         System.out.println("\n--- EDITAR EPI ---");
         System.out.print("ID do EPI: ");
-        int id = input.nextInt(); input.nextLine();
+        int id = input.nextInt();
+        input.nextLine();
 
         System.out.print("Novo Nome (Enter para manter): ");
         String n = input.nextLine();
@@ -153,7 +157,8 @@ public class CLIController implements CommandLineRunner {
 
     private void baixarEpi() {
         System.out.print("ID do EPI para dar baixa: ");
-        int id = input.nextInt(); input.nextLine();
+        int id = input.nextInt();
+        input.nextLine();
         epiService.indisponibilizar(id);
         System.out.println("EPI marcado como Indisponivel.");
     }
@@ -163,7 +168,8 @@ public class CLIController implements CommandLineRunner {
         System.out.print("ID do Colaborador: ");
         int ic = input.nextInt();
         System.out.print("ID do EPI: ");
-        int ie = input.nextInt(); input.nextLine();
+        int ie = input.nextInt();
+        input.nextLine();
 
         System.out.print("Data de Devolucao (AAAA-MM-DD) ou Enter para vazio: ");
         String d = input.nextLine();
@@ -172,7 +178,7 @@ public class CLIController implements CommandLineRunner {
         dto.setIdColaborador(ic);
         dto.setIdEpi(ie);
 
-        if(!d.isEmpty()) {
+        if (!d.isEmpty()) {
             try {
                 dto.setDataDevolucao(LocalDate.parse(d));
             } catch (Exception e) {
@@ -188,7 +194,8 @@ public class CLIController implements CommandLineRunner {
     private void devolver() {
         System.out.println("\n--- REGISTRAR DEVOLUCAO ---");
         System.out.print("ID do Emprestimo: ");
-        int id = input.nextInt(); input.nextLine();
+        int id = input.nextInt();
+        input.nextLine();
 
         EmprestimoDTO devolvido = empService.devolver(id);
         System.out.println("EPI Devolvido e disponivel no estoque novamente.");

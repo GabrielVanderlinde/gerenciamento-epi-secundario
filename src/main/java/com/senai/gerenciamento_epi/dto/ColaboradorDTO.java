@@ -1,4 +1,5 @@
 package com.senai.gerenciamento_epi.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
