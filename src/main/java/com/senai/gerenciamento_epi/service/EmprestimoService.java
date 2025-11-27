@@ -18,8 +18,8 @@ public class EmprestimoService {
     private final EpiRepository epiRepo;
 
     /**
-     * Realiza um novo emprestimo validando a disponibilidade do EPI
-     * e o status do colaborador.
+     * Registra saída de equipamento.
+     * Valida se o colaborador está ativo e se o EPI está disponível.
      */
     @Transactional
     public EmprestimoDTO criar(EmprestimoDTO dto) {
