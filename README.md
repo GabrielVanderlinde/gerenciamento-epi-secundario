@@ -5,6 +5,8 @@ Sistema corporativo em Java/Spring Boot para controle de segurança do trabalho.
 - Desenvolvido por Gabriel Vanderlinde, Jonathan, Matheus Bagatolli e Rhudsson
 - SENAI 2025
 
+Status do Projeto: Faltando Apresentação
+
 Sistema desenvolvido em Java com Spring Boot.
 
 ## Funcionalidades Principais
