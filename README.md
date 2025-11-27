@@ -19,14 +19,11 @@ Sistema desenvolvido em Java com Spring Boot.
 - **Histórico:** Registro de data de empréstimo e devolução.
 - **Interface:** Menu interativo via Terminal (CLI) limpo e intuitivo.
 
-## Tecnologias Utilizadas
-
-- **Linguagem:** Java 17 (LTS)
-- **Framework:** Spring Boot 3
-- **Persistência:** Spring Data JPA & Hibernate
-- **Banco de Dados:** MySQL
-- **Gerenciador de Dependências:** Maven
-- **Design Pattern:** MVC (Model-View-Controller) e DTO (Data Transfer Object)
+## Tecnologias
+- **Java:** 17
+- **Spring Boot:** 4.0.0
+- **Banco:** MySQL
+- **Build:** Maven
 
 ## Como rodar o projeto
 
