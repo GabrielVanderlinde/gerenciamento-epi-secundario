@@ -79,6 +79,7 @@ public class CLIController implements CommandLineRunner {
         System.out.println("\n--- NOVO COLABORADOR ---");
         System.out.print("Nome: ");
         String n = input.nextLine();
+        if (n.isBlank()) { System.out.println("Nome não pode ser vazio!"); return; }
         System.out.print("Setor: ");
         String s = input.nextLine();
 
