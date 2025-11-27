@@ -24,6 +24,3 @@ Sistema corporativo em **Java/Spring Boot** para controle de segurança do traba
 
 ## Como rodar
 1. Tenha o **Java 17** e **MySQL** (porta 3306) instalados.
-2. Clone o repositório e execute:
-   ```bash
-   ./mvnw spring-boot:run
