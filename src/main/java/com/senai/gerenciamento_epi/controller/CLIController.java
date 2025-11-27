@@ -23,8 +23,7 @@ public class CLIController implements CommandLineRunner {
     private final EmprestimoService emprestimoService;
     private final Scanner input = new Scanner(System.in);
 
-    // --- AQUI ESTÁ A MÁGICA: CONSTRUTOR MANUAL ---
-    // Isso permite usar seu código original sem depender do Lombok
+
     public CLIController(ColaboradorService colaboradorService,
                          EpiService epiService,
                          EmprestimoService emprestimoService) {
