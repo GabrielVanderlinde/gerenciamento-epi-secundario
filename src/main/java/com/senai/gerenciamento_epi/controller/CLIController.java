@@ -97,6 +97,7 @@ public class CLIController implements CommandLineRunner {
         System.out.print("ID do Colaborador: ");
         int id = input.nextInt();
         input.nextLine();
+        if (id <= 0) { System.out.println("ID Inválido!"); return; }
 
         System.out.print("Novo Nome (Enter para manter): ");
         String n = input.nextLine();
