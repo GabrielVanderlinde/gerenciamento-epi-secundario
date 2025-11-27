@@ -17,8 +17,10 @@ public class ColaboradorEntity {
 
     @Column(nullable = false)
     private String nomeColaborador;
+
     private String setorColaborador;
-    private String statusColaborador; // "1"=Ativo, "0"=Inativo
+
+    private String statusColaborador; // 1=Ativo, 0=Inativo
 
     @OneToMany(mappedBy = "colaborador")
     private List<EmprestimoEntity> emprestimos;
