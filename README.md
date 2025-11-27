@@ -1,11 +1,9 @@
 # Sistema de Gerenciamento de EPIs (SGE) - Versão 1.0
 Sistema corporativo em Java/Spring Boot para controle de segurança do trabalho.
-## Alunos
 
-Gabriel Vanderlinde
-Jonathan
-Matheus Bagatolli
-Rhudsson
+## Autores
+- Desenvolvido por Gabriel Vanderlinde, Jonathan, Matheus Bagatolli e Rhudsson
+- SENAI 2025
 
 Sistema desenvolvido em Java com Spring Boot.
 
