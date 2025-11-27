@@ -37,6 +37,9 @@ public class EmprestimoService {
         return toDTO(empRepo.save(emp));
     }
 
+    /**
+     * Processa o retorno do equipamento e libera o EPI para uso novamente.
+     */
     @Transactional
     public EmprestimoDTO devolver(Integer id) {
         EmprestimoEntity emp = empRepo.findById(id).orElseThrow();
