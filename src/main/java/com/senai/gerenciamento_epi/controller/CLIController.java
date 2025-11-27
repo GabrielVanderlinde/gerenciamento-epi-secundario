@@ -171,7 +171,7 @@ public class CLIController implements CommandLineRunner {
         int ie = input.nextInt();
         input.nextLine();
 
-        System.out.print("Data de Devolucao (AAAA-MM-DD) ou Enter para vazio: ");
+        System.out.print("Data de Devolucao (Ex: 2023-12-31) ou Enter: ");
         String d = input.nextLine();
 
         EmprestimoDTO dto = new EmprestimoDTO();
