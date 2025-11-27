@@ -1,5 +1,5 @@
-# 🛡️ Sistema de Gerenciamento de EPIs (SGE)
-
+# Sistema de Gerenciamento de EPIs (SGE) - Versão 1.0
+Sistema corporativo em Java/Spring Boot para controle de segurança do trabalho.
 ## Alunos
 
 Gabriel Vanderlinde
