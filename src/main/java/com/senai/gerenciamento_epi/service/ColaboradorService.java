@@ -18,6 +18,10 @@ public class ColaboradorService {
         return repo.findAll().stream().map(this::toDTO).collect(Collectors.toList());
     }
 
+    /**
+     * Cadastra um novo colaborador no banco de dados.
+     * Verifica duplicidade de nome antes de salvar.
+     */
     public ColaboradorDTO criar(ColaboradorDTO dto) {
         if (repo.existsByNomeColaborador(dto.getNomeColaborador()))
             throw new RuntimeException("Nome duplicado.");
