@@ -1,54 +1,42 @@
 package com.senai.gerenciamento_epi.service;
-
 import com.senai.gerenciamento_epi.dto.EmprestimoDTO;
 import com.senai.gerenciamento_epi.entity.*;
 import com.senai.gerenciamento_epi.repository.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class EmprestimoService {
     private final EmprestimoRepository empRepo;
     private final ColaboradorRepository colabRepo;
     private final EpiRepository epiRepo;
 
-    /**
-     * Registra saída de equipamento.
-     * Valida se o colaborador está ativo e se o EPI está disponível.
-     */
+    public EmprestimoService(EmprestimoRepository empRepo, ColaboradorRepository colabRepo, EpiRepository epiRepo) {
+        this.empRepo = empRepo; this.colabRepo = colabRepo; this.epiRepo = epiRepo;
+    }
+
     @Transactional
     public EmprestimoDTO criar(EmprestimoDTO dto) {
         ColaboradorEntity c = colabRepo.findById(dto.getIdColaborador()).orElseThrow();
         EpiEntity e = epiRepo.findById(dto.getIdEpi()).orElseThrow();
-
-        if (!e.getStatusEpi()) throw new RuntimeException("EPI Indisponivel!");
+        if(!Boolean.TRUE.equals(e.getStatusEpi())) throw new RuntimeException("EPI Indisponivel!");
 
         EmprestimoEntity emp = new EmprestimoEntity(c, e);
-        if (dto.getDataDevolucao() != null) emp.setDataDevolucao(dto.getDataDevolucao());
-
+        if(dto.getDataDevolucao() != null) emp.setDataDevolucao(dto.getDataDevolucao());
         e.setStatusEpi(false);
         epiRepo.save(e);
-
         return toDTO(empRepo.save(emp));
     }
 
-    /**
-     * Processa o retorno do equipamento e libera o EPI para uso novamente.
-     */
     @Transactional
     public EmprestimoDTO devolver(Integer id) {
         EmprestimoEntity emp = empRepo.findById(id).orElseThrow();
-        if ("DEVOLVIDO".equals(emp.getStatus())) throw new RuntimeException("Ja devolvido!");
-
+        if("DEVOLVIDO".equals(emp.getStatus())) throw new RuntimeException("Ja devolvido!");
         emp.setStatus("DEVOLVIDO");
         emp.getEpi().setStatusEpi(true);
         epiRepo.save(emp.getEpi());
-
         return toDTO(empRepo.save(emp));
     }
 
