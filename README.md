@@ -2,7 +2,7 @@
 
 Sistema corporativo em **Java/Spring Boot** para controle de segurança do trabalho e estoque.
 
-> **Status:** 🚧 Aguardando Apresentação
+> **Status:** APRESENTADO
 
 ## 👥 Autores (SENAI 2025)
 * Gabriel Vanderlinde
